@@ -1,39 +1,76 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed = 10;
-    public float jumpForce = 5;
-    public float gravityScale = 1;
+    Rigidbody rigid;
+    Vector3 inputDir;
+    public float moveSpeed, jumpForce;
+
+    public float smoothTurnTime = 0.2f;
+    float smoothTurnVel;
+
+    public float dist2Ground = 0.5f, dist2Push;
+    public bool isGrounded, isPushing;
+    public bool isPressing;
+    int collMaskGrnd, collMaskPush;
     
-    public CharacterController characterController;
-    Vector3 moveDirection;
+    Animator anim;
+    public Joystick joystick;
+    public Transform cameraTransform;
 
-    void Start()
-    {
-        //playerRigidbody = GetComponent<Rigidbody>();
-        characterController = GetComponent<CharacterController>();
+    public Vector3 levelStartPosition;
+
+    // Use this for initialization
+    void Start() {
+        rigid = GetComponent<Rigidbody>();
+        Bounds origin = GetComponent<BoxCollider>().bounds;
+        dist2Push = origin.extents.z;
+        collMaskGrnd = LayerMask.GetMask("Ground");
+        collMaskPush = LayerMask.GetMask("Pushable");
+        anim = GetComponent<Animator>();
+        cameraTransform = Camera.main.transform;
+        levelStartPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*playerRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal")*moveSpeed, playerRigidbody.velocity.y, Input.GetAxis("Vertical")*moveSpeed);
-        if (Input.GetButtonDown("Jump")) {
-            playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z); ;
-        }*/
-        moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
-
-        if (characterController.isGrounded) {
-            if (Input.GetButtonDown("Jump")) {
-                moveDirection.y = jumpForce;
-            }
+    void Update() {
+        if (inputDir != Vector3.zero) {
+            isPushing = Physics.Raycast(transform.position + Vector3.up, transform.forward, dist2Push + 0.1f, collMaskPush);
+            anim.SetBool("isPushing", isPushing);
+            Rotate();
         }
-        moveDirection.y += (Physics.gravity.y * gravityScale);
+        else
+            anim.SetBool("isPushing", false);
 
-        characterController.Move(moveDirection*Time.deltaTime);
+        if (transform.position.y < -10) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        inputDir = Vector3.ClampMagnitude(new Vector3(joystick.Horizontal, 0, joystick.Vertical), 1);
+        anim.SetFloat("speedPercent", inputDir.magnitude);
+        rigid.MovePosition(transform.position + transform.forward * moveSpeed * inputDir.magnitude * Time.fixedDeltaTime);
+
+        //isPressing = Input.GetKeyDown(KeyCode.Space);
+        isGrounded = Physics.Raycast(transform.position + transform.up*0.1f, -transform.up, dist2Ground, collMaskGrnd);
+        if (!isGrounded)
+            anim.SetBool("isFalling", true);
+        else
+            anim.SetBool("isFalling", false);
+
+        //if (isGrounded && isPressing) {
+        //    anim.SetBool("isJumping", true);
+        //    rigid.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        //}
+        //else if (!isGrounded) anim.SetBool("isJumping", false);
+        //anim.SetBool("isGrounded", isGrounded);
+        DebugStuff();
+    }
+
+    void Rotate() {
+        float targetRot = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
+        Vector3 angle = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRot, ref smoothTurnVel, smoothTurnTime);
+        rigid.rotation = Quaternion.Euler(angle);
+    }
+
+    void DebugStuff() {
+        Debug.DrawRay(transform.position + Vector3.up, transform.forward * dist2Push, Color.red);
+        Debug.DrawRay(transform.position + transform.up*0.1f, -transform.up * dist2Ground, Color.red);
     }
 }
