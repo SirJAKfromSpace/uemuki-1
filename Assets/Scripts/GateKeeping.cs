@@ -6,10 +6,9 @@ public class GateKeeping : MonoBehaviour
     
     public List<OnPlateChecker> blockChildren = new List<OnPlateChecker>();
     int blockCount = 0;
+    bool isGateOpen = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         Transform blockParent = transform.GetChild(2);
         foreach(Transform child in blockParent) {
             if (child != null) {
@@ -27,18 +26,24 @@ public class GateKeeping : MonoBehaviour
         }
         Debug.Log("onplate: " + count);
         if (count >= blockCount) OpenGate();
-        else CloseGate();
+        else if(isGateOpen) CloseGate();
     }
 
     public void OpenGate() {
         GameObject doorL, doorR;
         doorL = transform.GetChild(0).GetChild(1).gameObject;
         doorR = transform.GetChild(0).GetChild(2).gameObject;
-        LeanTween.moveX(doorL, doorL.transform.position.x-1, 3).setEaseOutBounce();
-        LeanTween.moveX(doorR, doorR.transform.position.x+1, 3).setEaseOutBounce();
+        LeanTween.moveX(doorL, doorL.transform.position.x-1, 3).setEaseInOutQuad();
+        LeanTween.moveX(doorR, doorR.transform.position.x+1, 3).setEaseInOutQuad();
+        isGateOpen = true;
     }
     public void CloseGate() {
-
+        GameObject doorL, doorR;
+        doorL = transform.GetChild(0).GetChild(1).gameObject;
+        doorR = transform.GetChild(0).GetChild(2).gameObject;
+        LeanTween.moveX(doorL, doorL.transform.position.x + 1, 3).setEaseInOutQuad();
+        LeanTween.moveX(doorR, doorR.transform.position.x - 1, 3).setEaseInOutQuad();
+        isGateOpen = false;
     }
 
 }

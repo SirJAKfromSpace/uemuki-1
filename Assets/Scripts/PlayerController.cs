@@ -24,10 +24,15 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         rigid = GetComponent<Rigidbody>();
-        Bounds origin = GetComponent<BoxCollider>().bounds;
+        rigid.centerOfMass = Vector3.zero;
+        rigid.inertiaTensorRotation = new Quaternion(0, 0, 0, 1);
+        Bounds origin = transform.GetChild(2).GetComponent<BoxCollider>().bounds;
         dist2Push = origin.extents.z;
+        
+        joystick = GameObject.Find("Floating Joystick").GetComponent<Joystick>();
         collMaskGrnd = LayerMask.GetMask("Ground");
         collMaskPush = LayerMask.GetMask("Pushable");
+        
         anim = GetComponent<Animator>();
         cameraTransform = Camera.main.transform;
         levelStartPosition = transform.position;
@@ -35,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         if (inputDir != Vector3.zero) {
-            isPushing = Physics.Raycast(transform.position + Vector3.up, transform.forward, dist2Push + 0.1f, collMaskPush);
+            isPushing = Physics.Raycast(transform.position + Vector3.up, transform.forward, dist2Push + 0.2f, collMaskPush);
             anim.SetBool("isPushing", isPushing);
             Rotate();
         }
@@ -45,10 +50,10 @@ public class PlayerController : MonoBehaviour {
         if (transform.position.y < -10) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         inputDir = Vector3.ClampMagnitude(new Vector3(joystick.Horizontal, 0, joystick.Vertical), 1);
         anim.SetFloat("speedPercent", inputDir.magnitude);
-        rigid.MovePosition(transform.position + transform.forward * moveSpeed * inputDir.magnitude * Time.fixedDeltaTime);
+        rigid.MovePosition(transform.position + transform.forward * moveSpeed * inputDir.magnitude * Time.deltaTime);
 
         //isPressing = Input.GetKeyDown(KeyCode.Space);
-        isGrounded = Physics.Raycast(transform.position + transform.up*0.1f, -transform.up, dist2Ground, collMaskGrnd);
+        isGrounded = Physics.Raycast(transform.position + transform.up*0.1f, -transform.up, dist2Ground, collMaskGrnd | collMaskPush);
         if (!isGrounded)
             anim.SetBool("isFalling", true);
         else

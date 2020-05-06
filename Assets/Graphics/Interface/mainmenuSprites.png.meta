@@ -1,12 +1,69 @@
 fileFormatVersion: 2
 guid: bce21c62bea92e94ead849cfa402c5d2
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6087804030336229856
+    second: push_tut
+  - first:
+      213: -5451125910046138776
+    second: quit_butt
+  - first:
+      213: 4023463940792234841
+    second: play_butt
+  - first:
+      213: 8976739556126412280
+    second: setting_butt
+  - first:
+      213: 111027157536793446
+    second: move_tut
+  - first:
+      213: -2432151918914042667
+    second: sliderHandle
+  - first:
+      213: -4335712806580732013
+    second: mainmenuSprites_6
+  - first:
+      213: -3439274378561725324
+    second: mainmenuSprites_7
+  - first:
+      213: 3611904027934924017
+    second: cam_tut
+  - first:
+      213: -7901854443123621758
+    second: mainmenuSprites_0
+  - first:
+      213: 1481882398674782613
+    second: mainmenuSprites_0
+  - first:
+      213: -2950554086662402718
+    second: fall
+  - first:
+      213: -5950749697280581962
+    second: mainmenuSprites_2
+  - first:
+      213: 2657535294770581791
+    second: mainmenuSprites_3
+  - first:
+      213: 8853340957548127005
+    second: mainmenuSprites_4
+  - first:
+      213: 676067742916471057
+    second: mainmenuSprites_5
+  - first:
+      213: 6654096674677149349
+    second: mainmenuSprites_8
+  - first:
+      213: -5468891710920000907
+    second: mainmenuSprites_9
+  - first:
+      213: 6923755373445923675
+    second: mainmenuSprites_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -32,16 +89,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +107,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -63,7 +120,31 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -75,11 +156,200 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: push_tut
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1602
+        width: 1099
+        height: 942
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e1e9d2d76c38ba0800000000000000
+      internalID: -6087804030336229856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quit_butt
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 2096
+        width: 445
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e95c9bdd5b954b0800000000000000
+      internalID: -5451125910046138776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: play_butt
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 2102
+        width: 451
+        height: 439
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953b38d032736d730800000000000000
+      internalID: 4023463940792234841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: setting_butt
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 2099
+        width: 444
+        height: 447
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdcc14c019c39c70800000000000000
+      internalID: 8976739556126412280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: move_tut
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346
+        width: 607
+        height: 1227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663e66d8c927a8100800000000000000
+      internalID: 111027157536793446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderHandle
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 1036
+        width: 375
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4085147b24f3ed0800000000000000
+      internalID: -2432151918914042667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cam_tut
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 0
+        width: 802
+        height: 1035
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc1dd3a39f002230800000000000000
+      internalID: 3611904027934924017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainmenuSprites_0
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 1637
+        width: 386
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 84, y: 81, z: 81, w: 81}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28046c2ff39f65290800000000000000
+      internalID: -7901854443123621758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fall
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 1312
+        width: 849
+        height: 741
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d09edd0b68d07d0800000000000000
+      internalID: -2950554086662402718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 815932c2230d9a34abfde552bb7a3d64
     internalID: 0
     vertices: []
     indices: 

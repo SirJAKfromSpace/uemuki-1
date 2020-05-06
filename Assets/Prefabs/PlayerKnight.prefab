@@ -178,8 +178,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569837868599349565}
   m_LocalRotation: {x: -0.7070577, y: -0.008331873, z: -0.008331873, w: 0.7070577}
-  m_LocalPosition: {x: -0, y: 0.64184296, z: 0}
-  m_LocalScale: {x: 99.99999, y: 99.99999, z: 100}
+  m_LocalPosition: {x: 0, y: 0.64184296, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 2295089090541442267}
   - {fileID: 1780934115316085515}
@@ -187,7 +187,7 @@ Transform:
   - {fileID: 439260225800206430}
   - {fileID: 807584459765981604}
   m_Father: {fileID: 2613748954967035227}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640553100853737845
 GameObject:
@@ -282,6 +282,50 @@ Transform:
   m_Father: {fileID: 472917059370231555}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835822771610514340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7058021881406877359}
+  - component: {fileID: 4263947136032287579}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7058021881406877359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835822771610514340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.633, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2613748954967035227}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4263947136032287579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835822771610514340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79366386, y: 1.0775435, z: 0.6779031}
+  m_Center: {x: -0.000000076266055, y: -0.1777128, z: 0.15056068}
 --- !u!1 &857308516433668106
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +428,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2613748954967035227}
   - component: {fileID: 7007409831262167424}
-  - component: {fileID: 7007409831262167425}
   - component: {fileID: 7007409831262167427}
   - component: {fileID: 7007409831262167439}
   - component: {fileID: 7007409831262167438}
@@ -406,8 +449,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2170201903403169761}
   - {fileID: 2074086574716835971}
+  - {fileID: 2170201903403169761}
+  - {fileID: 7058021881406877359}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -421,25 +465,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &7007409831262167425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305690997682683720}
-  m_Material: {fileID: 13400000, guid: 6a2b8ca45095ec5468b7e515b1b0cffa, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6872997, y: 2, z: 0.6437623}
-  m_Center: {x: -0.000000059394345, y: 1, z: 0.1412423}
 --- !u!136 &7007409831262167427
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -447,13 +478,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305690997682683720}
-  m_Material: {fileID: 13400000, guid: 6a2b8ca45095ec5468b7e515b1b0cffa, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
+  m_Enabled: 1
+  m_Radius: 0.3615697
+  m_Height: 0.7436141
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0.07976875}
+  m_Center: {x: -0.00000006631388, y: 0.33824128, z: 0.10725886}
 --- !u!95 &7007409831262167439
 Animator:
   serializedVersion: 3
@@ -957,7 +988,7 @@ Transform:
   m_LocalScale: {x: 100.00001, y: 100.00001, z: 100}
   m_Children: []
   m_Father: {fileID: 2613748954967035227}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1657949281688745776
 SkinnedMeshRenderer:
